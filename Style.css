@@ -396,7 +396,7 @@ img {
 
 }
 
-/* @media (max-width: 700px) {
+@media (max-width: 700px) {
   .gallery-wrap {
     display: none;
   }
@@ -405,36 +405,6 @@ img {
   }
   body{
     background: rgb(42,56,70);
-  }
-} */
-
-@media (min-width: 450px) {
-  .search-element .form-control {
-    width: 90%;
-    margin: 0 auto;
-    padding: 0.5rem 1rem;
-  }
-  .search-element h3 {
-    font-size: 1.4rem;
-  }
-  .search-list {
-    width: 90%;
-    right: 50%;
-    -webkit-transform: translateX(50%);
-    -ms-transform: translateX(50%);
-    transform: translateX(50%);
-  }
-  .search-list .search-list-item {
-    width: 100%;
-  }
-  .movie-misc-info {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-  }
-  .movie-misc-info li:nth-child(2) {
-    margin: 0.8rem 0;
   }
 }
 
