@@ -13,7 +13,7 @@
 }
 
 body {
-  background: linear-gradient(180deg, rgb(32, 38, 44), rgba(0,0,0));
+  background: rgb(23, 23, 23);
   color: white;
 }
 
@@ -433,19 +433,4 @@ img {
     padding-left: 0;
     margin-left: 0;
   }
-
-  .gallery div{
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-gap: 20px;
-    padding: 10px;
-    flex: none;
-  }
-
-  .gallery div span{
-    width: 100%;
-    transition: 0.4s all ease-in-out;
-
-  }
-
 }
