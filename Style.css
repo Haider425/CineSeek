@@ -2,7 +2,7 @@
   --md-dark-color: #1d1d1d;
   --dark-color: #171717;
   --light-dark-color: #292929;
-  --yellow-color: #740006ca;
+  --yellow-color: #686c4f;
 }
 
 * {
@@ -13,7 +13,7 @@
 }
 
 body {
-  background: rgb(23, 23, 23);
+  background: linear-gradient(180deg, rgb(43, 56, 70), rgba(23, 23, 23, 1));
   color: white;
 }
 
@@ -54,7 +54,7 @@ img {
   padding: 0 1rem;
 }
 .search-container {
-  background: linear-gradient(down, rgb(0, 0, 0, 1), rgba(23, 23, 23, 1));
+  background: linear-gradient(down, rgb(0, 0, 0, 1), rgba(43,56,70));
   height: 180px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -263,6 +263,7 @@ img {
   margin: 0 auto;
   padding: 20px;
   width: 100%;
+  padding-top: 0px;
 }
 
 .gallery div {
@@ -270,8 +271,8 @@ img {
   grid-template-columns: repeat(
     auto-fill,
     minmax(200px, 1fr)
-  ); /* Adjust the column width as needed */
-  grid-gap: 10px; /* Reduce the gap between grid items */
+  ); 
+  grid-gap: 10px; 
   padding: 10px;
   flex: none;
 }
@@ -289,7 +290,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 10%;
+  margin: 5%;
 }
 #backbtn,
 #nextbtn {
@@ -340,6 +341,7 @@ img {
   color: var(--yellow-color);
   margin-top: 0%;
   text-align: center;
+  margin-bottom: 0%;
 }
 .spacing {
   margin-bottom: 20%;
