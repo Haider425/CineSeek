@@ -31,15 +31,6 @@ body::-webkit-scrollbar-thumb {
   border: 3px solid transparent;
 }
 
-.title img{
-  text-align: left;
-  width: 100px;
-  height: 100px;
-  padding: 10px;
-  display: block;
-
-
-}
 
 .header {
   width: 100%;
