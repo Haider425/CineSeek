@@ -2,9 +2,57 @@ const movieSearchBox = document.getElementById('movie-search-box');
 const searchList = document.getElementById('search-list');
 const resultGrid = document.getElementById('result-grid');
 const rated = document.querySelector('.rated');
+let scrollConatiner = document.querySelector('.gallery');
+let backbtn = document.getElementById('backbtn');
+let nextbtn = document.getElementById('nextbtn');
+
+const API_key = 'api_key=35df28cb33a332d4a275855e6ebd739d';
+const base_url = 'https://api.themoviedb.org/3';
+const api_url = base_url + '/discover/movie?sort_by=popularity.desc&' + API_key;
+
+const img_url = 'https://image.tmdb.org/t/p/w500';
+const main = document.getElementById('main');
+
+getMovies(api_url);
+
+function getMovies(url){
+    fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            showMovies(data.results);
+        });
+}
+
+function showMovies(data) {
+    main.innerHTML = '';
+
+    for (let index = 0; index < 15; index++) {
+        const { title, poster_path } = data[index];
+        const movieEl = document.createElement('div');
+        movieEl.classList.add('movie');
+        movieEl.innerHTML = `
+            <span class="movie-${index + 1}">
+                <img src="${img_url + poster_path}" alt="${title}" class="poster" id="poster-${index + 1}" 
+                style="width: 300px; height: auto;">
+                <h3 class="movie-title">${title}</h3>
+            </span>
+        `;
+        main.appendChild(movieEl);
+        movieEl.addEventListener('click', () => {
+              searchList.classList.add('hide-search-list');
+                const result = fetch(`https://www.omdbapi.com/?t=${title}&apikey=9ed72d41`);
+                result.then(res => res.json())
+                    .then(data => {
+                        displayMovieDetails(data);
+                        window.scrollTo(0, 0);
+                
+                    });
+
+        });
+    }
+}
 
 
-// load movies from API
 async function loadMovies(searchTerm){
     const URL = `https://www.omdbapi.com/?s=${searchTerm}&page=1&apikey=9ed72d41`;
     const res = await fetch(`${URL}`);
@@ -63,8 +111,10 @@ function loadMovieDetails(){
             const result = await fetch(`https://www.omdbapi.com/?i=${movie.dataset.id}&apikey=9ed72d41`);
             
             const movieDetails = await result.json();
-            // console.log(movieDetails);
+         
             displayMovieDetails(movieDetails);
+
+            
         });
     });
 }
@@ -72,6 +122,7 @@ function loadMovieDetails(){
 function displayMovieDetails(details){
     console.log(details);
     resultGrid.innerHTML = `
+   
     <div class = "movie-poster">
         <img src = "${(details.Poster != "N/A") ? details.Poster : "Images/image_not_found.png"}" alt = "movie poster">
     </div>
@@ -93,6 +144,7 @@ function displayMovieDetails(details){
         <p class = "language"><b>Language:</b> ${details.Language}</p>
         <p class = "awards"><b><i class = "fas fa-award"></i></b> ${details.Awards}</p>
     </div>
+    <div class = "spacing"></div>
     `;
 
 
@@ -121,4 +173,20 @@ window.addEventListener('click', (event) => {
     if(event.target.className != "form-control"){
         searchList.classList.add('hide-search-list');
     }
+});
+
+scrollConatiner.addEventListener('wheel', (evt) => {
+    evt.preventDefault();
+    scrollConatiner.scrollLeft += evt.deltaY;
+    scrollConatiner.style.scrollBehavior = "auto";
+});
+
+nextbtn.addEventListener('click', () => {
+    scrollConatiner.style.scrollBehavior = "smooth";
+    scrollConatiner.scrollLeft += 600;
+});
+
+backbtn.addEventListener('click', () => {
+    scrollConatiner.style.scrollBehavior = "smooth";
+    scrollConatiner.scrollLeft -= 600;
 });
