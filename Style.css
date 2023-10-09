@@ -331,7 +331,7 @@ img {
   padding: 10px;
   flex: none;
 }
-.movie-title {
+.movie h3{
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 300px;
@@ -391,9 +391,10 @@ img {
     background: rgb(42,56,70);
     height: auto;
 
+  } 
+  .movie-info h3{
+    font-size: 1.5rem;
   }
-
-
 }
 
 @media (max-width: 700px) {
