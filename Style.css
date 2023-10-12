@@ -387,14 +387,18 @@ img {
   .page-title {
     display: none;
   }
-  body{
-    background: linear-gradient(180deg, rgb(25, 25, 26), rgba(23, 23, 23, 1));
-    height: auto;
+  .result-container{
+    background-color:  rgb(25, 25, 25);
+
 
   } 
+  .search-container{
+    background-color: rgb(25, 25, 25);
+  }
   .movie-info h3{
     font-size: 1.5rem;
   }
+  
 }
 
 @media (max-width: 700px) {
@@ -405,7 +409,7 @@ img {
     display: none;
   }
   body{
-    background: linear-gradient(180deg, rgb(25, 25, 26), rgba(23, 23, 23, 1));
+    background-color: rgb(28, 28, 28);
   }
 }
 
