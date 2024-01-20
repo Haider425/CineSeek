@@ -302,6 +302,8 @@ img {
   overflow-x: scroll;
   margin: 0 auto;
   padding: 10px;
+  padding-top: 20px;
+ 
   width: 80%;
   height: 500px; 
 
@@ -332,7 +334,7 @@ img {
   align-items: center;
   justify-content: center;
   margin-top: 1%;
-  width: 90%;
+  width: 92%;
 
 }
 #backbtn, #nextbtn{
