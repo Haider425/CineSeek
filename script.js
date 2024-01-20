@@ -15,7 +15,7 @@ const main = document.getElementById('main');
 
 getMovies(api_url);
 
-function getMovies(url) {
+function getMovies(url){
     fetch(url)
         .then(res => res.json())
         .then(data => {
@@ -33,57 +33,57 @@ function showMovies(data) {
         movieEl.innerHTML = `
             <span class="movie-${index + 1}">
                 <img src="${img_url + poster_path}" alt="${title}" class="poster" id="poster-${index + 1}" 
-                style="width: 300px; height: auto;">
+                style="width: 250px; height: auto;">
                 <h3 class="movie-title">${title}</h3>
             </span>
         `;
         main.appendChild(movieEl);
         movieEl.addEventListener('click', () => {
-            searchList.classList.add('hide-search-list');
-            const result = fetch(`https://www.omdbapi.com/?t=${title}&apikey=9ed72d41`);
-            result.then(res => res.json())
-                .then(data => {
-                    displayMovieDetails(data);
-                    window.scrollTo(0, 0);
-
-                });
+              searchList.classList.add('hide-search-list');
+                const result = fetch(`https://www.omdbapi.com/?t=${title}&apikey=9ed72d41`);
+                result.then(res => res.json())
+                    .then(data => {
+                        displayMovieDetails(data);
+                        window.scrollTo(0, 0);
+                
+                    });
 
         });
     }
 }
 
 
-async function loadMovies(searchTerm) {
+async function loadMovies(searchTerm){
     const URL = `https://www.omdbapi.com/?s=${searchTerm}&page=1&apikey=9ed72d41`;
     const res = await fetch(`${URL}`);
     const data = await res.json();
     console.log(data.Search);
-    if (data.Response == "True") displayMovieList(data.Search);
-
+    if(data.Response == "True") displayMovieList(data.Search);
+  
 }
 
-function findMovies() {
+function findMovies(){
     let searchTerm = (movieSearchBox.value).trim();
-    if (searchTerm.length > 0) {
+    if(searchTerm.length > 0){
         searchList.classList.remove('hide-search-list');
-
+       
         loadMovies(searchTerm);
     } else {
         searchList.classList.add('hide-search-list');
     }
 }
 
-function displayMovieList(movies) {
+function displayMovieList(movies){
     console.log(movies);
 
     searchList.innerHTML = "";
-    for (let idx = 0; idx < movies.length; idx++) {
+    for(let idx = 0; idx < movies.length; idx++){
         let movieListItem = document.createElement('div');
-        movieListItem.dataset.id = movies[idx].imdbID;
+        movieListItem.dataset.id = movies[idx].imdbID; 
         movieListItem.classList.add('search-list-item');
-        if (movies[idx].Poster != "N/A")
+        if(movies[idx].Poster != "N/A")
             moviePoster = movies[idx].Poster;
-        else
+        else 
             moviePoster = "Images/image_not_found.png";
 
         movieListItem.innerHTML = `
@@ -101,7 +101,7 @@ function displayMovieList(movies) {
     loadMovieDetails();
 }
 
-function loadMovieDetails() {
+function loadMovieDetails(){
     const searchListMovies = searchList.querySelectorAll('.search-list-item');
     searchListMovies.forEach(movie => {
         movie.addEventListener('click', async () => {
@@ -109,17 +109,17 @@ function loadMovieDetails() {
             searchList.classList.add('hide-search-list');
             movieSearchBox.value = "";
             const result = await fetch(`https://www.omdbapi.com/?i=${movie.dataset.id}&apikey=9ed72d41`);
-
+            
             const movieDetails = await result.json();
-
+         
             displayMovieDetails(movieDetails);
 
-
+            
         });
     });
 }
 
-function displayMovieDetails(details) {
+function displayMovieDetails(details){
     console.log(details);
     resultGrid.innerHTML = `
    
@@ -148,27 +148,29 @@ function displayMovieDetails(details) {
     `;
 
 
-    switch (details.Rated) {
+    switch(details.Rated) {
         case 'G':
-            document.querySelector('.rated').style.backgroundColor = '#2ecc71';
-            break;
+          document.querySelector('.rated').style.backgroundColor = '#2ecc71';
+          break;
         case 'PG':
-            document.querySelector('.rated').style.backgroundColor = '#f1c40f';
-            break;
+          document.querySelector('.rated').style.backgroundColor = '#f1c40f';
+          break;
         case 'PG-13':
-            document.querySelector('.rated').style.backgroundColor = '#e67e22';
-            break;
+          document.querySelector('.rated').style.backgroundColor = '#e67e22';
+          break;
         case 'R':
-            document.querySelector('.rated').style.backgroundColor = '#740006ca';
-            break;
+          document.querySelector('.rated').style.backgroundColor = '#740006ca';
+          break;
         default:
-            document.querySelector('.rated').style.backgroundColor = '#3498db';
-    }
+          document.querySelector('.rated').style.backgroundColor = '#3498db';
+      }
 }
 
 
+
+
 window.addEventListener('click', (event) => {
-    if (event.target.className != "form-control") {
+    if(event.target.className != "form-control"){
         searchList.classList.add('hide-search-list');
     }
 });
