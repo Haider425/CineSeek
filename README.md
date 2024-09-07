@@ -23,7 +23,7 @@ Visit our website to start searching for movies and access all the information y
 
 Here’s a glimpse of what you can expect from CineSeek:
 
-![CineSeek Screenshot](<img width="960" alt="Screenshot 2024-01-20 012428" src="https://github.com/Haider425/CineSeek/assets/112786520/77aa1181-f89d-4af9-8f0e-13beb70f7d43">)
+<img width="900" alt="Screenshot 2024-01-20 012428" src="https://github.com/Haider425/CineSeek/assets/112786520/77aa1181-f89d-4af9-8f0e-13beb70f7d43">
 
 ## Getting Started
 
