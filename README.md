@@ -17,7 +17,7 @@ Welcome to **CineSeek**, your ultimate movie search website! CineSeek provides c
 
 Visit our website to start searching for movies and access all the information you need:
 
-[Explore CineSeek](https://haider425.github.io/CineSeek/)
+[Explore CineSeek](https://cineseek.netlify.app/)
 
 ## Screenshot
 
@@ -29,7 +29,7 @@ Here’s a glimpse of what you can expect from CineSeek:
 
 To use CineSeek:
 
-1. Open the [CineSeek website](https://haider425.github.io/CineSeek/).
+1. Open the [CineSeek website](https://cineseek.netlify.app/).
 2. Use the search functionality to find movies by title or genre.
 3. Explore detailed movie information including posters, ratings, and more.
 
